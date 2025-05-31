@@ -5,7 +5,7 @@
     "image": "",
     "email": "I.C.W.M.Marijnissen@tudelft.nl",
     "url": "imkomarijnissen.com",
-    "summary": "A PhD candidate at Delft University of Technology, focussing on scheduling for quantum computing.",
+    "summary": "PhD candidate at Delft University of Technology, focussing on scheduling for quantum computing.",
     "profiles": [
       {
         "network": "Github",
@@ -18,15 +18,15 @@
     {
       "name": "Delft University of Technology",
       "position": "PhD Candidate",
-      "startDate": "01-09-2023",
+      "startDate": "2023",
       "summary": "PhD Candidate focussing on scheduling for quantum computing.",
       "highlights": ["Scheduling", "Constraint Programming", "Lazy Clause Generation"]
     },
     {
       "name": "Delft University of Technology",
       "position": "Teaching Assistant",
-      "startDate": "01-04-2020",
-      "endDate": "31-08-2023",
+      "startDate": "2020",
+      "endDate": "2023",
       "summary": "Teaching Assistant for various courses. I helped with questions related to course material, grading of Assignments/Exams and creating Assignments/Exams."
     }
   ],
@@ -35,27 +35,24 @@
       "institution": "Delft University of Techology, Delft, Netherlands",
       "location": "Delft, Netherlands",
       "url": "https://www.tudelft.nl/",
-      "area": "Computer Science",
-      "studyType": "Master",
-      "startDate": "01-09-2021",
-      "endDate": "31-08-2023",
-      "score": "Cum Laude"
+      "area": "Computer Science and Engineering",
+      "studyType": "Bachelor's Degree - Cum Laude",
+      "startDate": "2018",
+      "endDate": "2021"
     },
     {
       "institution": "Delft University of Techology, Delft, Netherlands",
       "location": "Delft, Netherlands",
       "url": "https://www.tudelft.nl/",
-      "area": "Computer Science and Engineering",
-      "studyType": "Bachelor",
-      "startDate": "01-09-2018",
-      "endDate": "31-08-2021",
-      "score": "Cum Laude"
+      "area": "Computer Science",
+      "studyType": "Master's Degree - Cum Laude",
+      "startDate": "2021",
+      "endDate": "2023"
     }
   ],
   "certificates": [
     {
-      "name": "Certificate in Advanced English - CEFR: C2",
-      "date": "01-06-2016",
+      "name": "Certificate in Advanced English - C2",
       "issuer": "Cambridge",
       "url": "https://www.cambridgeenglish.org/exams-and-tests/advanced/",
       "icon": "fa-solid fa-location-dot"
@@ -63,16 +60,15 @@
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
+      "name": "Computer Science",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+          "Scheduling",
+          "Cumulative Constraint",
+          "Constraint Programming",
+          "Lazy Clause Generation",
+          "Solver Implementation",
+          "Maximum Satisfiability"
       ]
     }
   ],
@@ -92,19 +88,5 @@
       "fluency": "Basic Proficiency",
       "icon": ""
     }
-  ],
-  "interests": [
-    {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
+  ]
 }
