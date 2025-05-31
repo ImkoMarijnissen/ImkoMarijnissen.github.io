@@ -262,7 +262,7 @@ display_categories: ["external-services"] # these categories will be displayed o
 
 scholar:
   last_name: [Marijnissen]
-  first_name: [Imko, I., I.C.W.M., I.C.W.M]
+  first_name: [Imko, I., I.C.W.M., I.C.W.M, ICWM]
 
   style: apa
   locale: en
