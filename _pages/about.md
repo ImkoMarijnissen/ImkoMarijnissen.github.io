@@ -27,8 +27,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-# Imko Marijnissen
-
 PhD candidate at the [Delft University of Technology](https://www.tudelft.nl/) in the [Algorithmics](https://www.tudelft.nl/ewi/over-de-faculteit/afdelingen/software-technology/algorithmics) group. I work in the ConSol lab led by [Emir Demirović](https://emirde.github.io/).
 
 My research focusses on Scheduling in the domain of quantum computing, particularly, using Constraint Programming.
