@@ -16,6 +16,14 @@
   },
   "work": [
     {
+      "position": "International Internship Program",
+      "name": "National Institute of Informatics",
+      "location": "Tokyo, Japan",
+      "startDate": "Aug 2025",
+      "endDate": "Oct 2025",
+      "summary": "Research Internship on 'Constraint Propagation in Domain-Independent Dynamic Programming'"
+    },
+    {
       "name": "Delft University of Technology",
       "position": "PhD Candidate",
       "startDate": "2023",
