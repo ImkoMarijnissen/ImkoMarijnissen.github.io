@@ -469,11 +469,25 @@ ninja.data = [{
           window.open("https://github.com/ImkoMarijnissen", "_blank");
         },
       },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/imko-marijnissen", "_blank");
+        },
+      },{
         id: 'social-orcid',
         title: 'ORCID',
         section: 'Socials',
         handler: () => {
           window.open("https://orcid.org/0009-0008-7086-920X", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=ywrYYdkAAAAJ", "_blank");
         },
       },{
       id: 'light-theme',
