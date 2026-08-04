@@ -31,4 +31,4 @@ PhD candidate at the [Delft University of Technology](https://www.tudelft.nl/) i
 
 My research focusses on Scheduling in the domain of quantum computing, particularly, using Constraint Programming.
 
-I am one of the core contributors of [Pumpkin](https://github.com/ConSol-Lab/Pumpkin). A Lazy Clause Generation solver developed by the ConSol Lab.
+I am one of the core contributors of [Pumpkin](https://github.com/ConSol-Lab/Pumpkin), a Lazy Clause Generation (LCG) Constraint Programming (CP) solver developed by the ConSol Lab. Pumpkin won a silver 🥈 and a bronze medal 🥉 in the [2026 MiniZinc Challenge](https://www.minizinc.org/challenge/2026/results/)!
