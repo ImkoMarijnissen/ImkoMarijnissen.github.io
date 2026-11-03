@@ -1,0 +1,7 @@
+{% comment %}
+  Hook included by al_folio_core's _layouts/bib.liquid just before it builds the venue line of a publication.
+  The Publications page is grouped by year (scholar.group_by: year), with the year shown as a heading on the
+  right, so the year (and month) after the venue would be a repetition: clear them here.
+{% endcomment %}
+{% assign entryyear = '' %}
+{% assign entrymonth = '' %}

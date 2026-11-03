@@ -4,8 +4,8 @@ permalink: /cv/
 title: Resume
 nav: true
 nav_order: 5
-cv_pdf: # you can also use external links here
-cv_format: jsonresume # options: rendercv, jsonresume
+cv_pdf: /assets/rendercv/rendercv_output/Imko_Marijnissen_CV.pdf # rendered by .github/workflows/render-cv.yml
+cv_format: rendercv # options: rendercv, jsonresume
 description:
 toc:
   sidebar: left
