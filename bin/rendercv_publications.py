@@ -26,6 +26,9 @@ from bibtexparser.customization import convert_to_unicode
 SECTION_TITLE = "Publications"
 # The publications are placed right after this section (or at the end if it is missing).
 INSERT_AFTER = "Education"
+# Default descriptions of thesis entries; al-folio's `additional_info` field (e.g. ", Bachelor Thesis",
+# which the website appends after the school) takes precedence.
+THESIS_TYPES = {"mastersthesis": "Master Thesis", "phdthesis": "PhD Thesis", "thesis": "Thesis"}
 
 
 def clean(text):
@@ -50,17 +53,23 @@ def format_author(author, own_last_name):
 
 def to_publication(entry, own_last_name):
     title = clean(entry["title"])
-    # The title itself links to the publication (its DOI, or else its URL); the design template
+    # The title itself links to the publication (its DOI, or else its URL or al-folio `html` link); the design template
     # therefore leaves out RenderCV's separate link, so `doi`/`url` are not passed on.
     if entry.get("doi"):
         link = f"https://doi.org/{clean(entry['doi'])}"
     else:
-        link = clean(entry.get("url", ""))
+        link = clean(entry.get("url") or entry.get("html") or "")
     publication = {
         "title": f"[{title}]({link})" if link else title,
         "authors": [format_author(a, own_last_name) for a in re.split(r"\s+and\s+", entry.get("author", ""))],
     }
-    venue = clean(entry.get("booktitle") or entry.get("journal") or "")
+    if entry["ENTRYTYPE"] in THESIS_TYPES:
+        # e.g. "Master Thesis, Delft University of Technology"
+        kind = clean(entry.get("additional_info", "")).lstrip(",. ") or THESIS_TYPES[entry["ENTRYTYPE"]]
+        parts = [kind, entry.get("school", "")]
+        venue = ", ".join(clean(p) for p in parts if clean(p))
+    else:
+        venue = clean(entry.get("booktitle") or entry.get("journal") or "")
     if "*" in entry.get("author", ""):
         # RenderCV puts a summary above the authors, so the note goes after the venue instead.
         venue = f"{venue}. \\* Equal contribution" if venue else "\\* Equal contribution"
@@ -82,7 +91,7 @@ def main():
     with open(args.cv, encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
-    bib_parser = BibTexParser(common_strings=True)
+    bib_parser = BibTexParser(common_strings=True, ignore_nonstandard_types=False)  # keep @thesis
     bib_parser.customization = convert_to_unicode
     # `common_strings` only knows the abbreviated months (jun); also accept unquoted full names (month=june).
     for month in ("january february march april may june july august september october november december").split():

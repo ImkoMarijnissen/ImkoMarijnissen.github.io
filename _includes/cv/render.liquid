@@ -1,7 +1,7 @@
 {% comment %}
   Site override of al_folio_cv's templates/cv/render.liquid (v1.0.2). Changes, RenderCV branch only:
   - RenderCV rejects unknown top-level `cv` keys, so the professional title comes from `cv.headline`
-    (falling back to `cv.label`) and the summary from a `Summary` section (bullet entries);
+    (falling back to `cv.label`) and the summary from a `Summary` section (text or bullet entries);
   - that `Summary` section is rendered first, above Experience, instead of after it.
 {% endcomment %}
 
