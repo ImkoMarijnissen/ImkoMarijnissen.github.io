@@ -6,13 +6,17 @@ on:
       - master
     paths:
       - "_data/cv.yml"
+      - "_bibliography/papers.bib"
+      - "bin/rendercv_publications.py"
       - "assets/rendercv/design.yaml"
       - "assets/rendercv/locale.yaml"
       - "assets/rendercv/settings.yaml"
+      - ".github/workflows/render-cv.yml"
   workflow_call:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write # to trigger the deploy workflow after committing the new PDF
 jobs:
   rendercv:
     name: RenderCV
@@ -42,17 +46,36 @@ jobs:
             echo "Missing RenderCV config file!"
             exit 1
           fi
-          rendercv render $cv_file --settings $settings
-          rm assets/rendercv/rendercv_output/*.typ
+          # Add the publications from the bibliography to a generated copy of the CV and render that
+          merged_cv="$(dirname "$cv_file")/.cv_with_publications.yml"
+          python bin/rendercv_publications.py --cv "$cv_file" --output "$merged_cv"
+          # RenderCV 2.x ignores the design/locale paths in settings.yaml, so pass them explicitly
+          rendercv render "$merged_cv" --settings $settings \
+            --design "$rendercv_dir/design.yaml" --locale-catalog "$rendercv_dir/locale.yaml"
+          rm "$merged_cv" assets/rendercv/rendercv_output/*.typ
       - name: Upload rendercv_output as an artifact
         uses: actions/upload-artifact@v7
         with:
           name: RenderCV Output
           path: assets/rendercv/rendercv_output
       - name: Push the changes
+        id: push
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add -A
+          if git diff --cached --quiet; then
+            echo "The rendered CV is unchanged, nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           git commit -m "chore: render the latest CV"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      # Pushes made with GITHUB_TOKEN don't trigger other workflows, so start the deploy explicitly
+      # to publish the freshly rendered PDF.
+      - name: Deploy the site with the new PDF
+        if: steps.push.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "${{ github.ref_name }}"

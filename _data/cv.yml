@@ -1,0 +1,87 @@
+# CV data in RenderCV format (https://docs.rendercv.com/user_guide/yaml_input_structure/cv/).
+# It feeds both the /cv/ page and the PDF that .github/workflows/render-cv.yml renders on push to main.
+# Keys RenderCV doesn't know (label, icon, department, issuer, ...) are ignored in the PDF
+# but used by the website templates.
+cv:
+  name: Imko Marijnissen
+  headline: PhD Candidate
+  email: I.C.W.M.Marijnissen@tudelft.nl
+  website: https://imkomarijnissen.com
+
+  social_networks:
+    - network: GitHub
+      username: ImkoMarijnissen
+
+  sections:
+    Summary:
+      - bullet: PhD candidate at Delft University of Technology, focussing on scheduling for quantum computing.
+
+    Experience:
+      - company: National Institute of Informatics
+        position: International Internship Program
+        url: https://www.nii.ac.jp/en/about/international/mouresearch/
+        location: Tokyo, Japan
+        start_date: 2025-08
+        end_date: 2025-10
+        summary: Research Internship on 'Constraint Propagation in Domain-Independent Dynamic Programming' with [Ryo Kuroiwa](https://kurorororo.github.io/).
+
+      - company: Delft University of Technology
+        position: PhD Candidate
+        department: Algorithmics
+        icon: fa-solid fa-building-columns
+        url: https://www.tudelft.nl/
+        location: Delft, Netherlands
+        start_date: 2023
+        end_date: present
+        summary: PhD Candidate focussing on scheduling for quantum computing.
+        highlights:
+          - Scheduling
+          - Constraint Programming
+          - Lazy Clause Generation
+
+      - company: Delft University of Technology
+        position: Teaching Assistant
+        icon: fa-solid fa-building-columns
+        url: https://www.tudelft.nl/
+        location: Delft, Netherlands
+        start_date: 2020
+        end_date: 2023
+        summary: Teaching Assistant for various courses. I helped with questions related to course material, grading of Assignments/Exams and creating Assignments/Exams.
+
+    Education:
+      - institution: Delft University of Technology
+        icon: fa-solid fa-building-columns
+        location: Delft, Netherlands
+        url: https://www.tudelft.nl/
+        area: Computer Science
+        degree: "Master's Degree - Cum Laude"
+        start_date: 2021
+        end_date: 2023
+
+      - institution: Delft University of Technology
+        icon: fa-solid fa-building-columns
+        location: Delft, Netherlands
+        url: https://www.tudelft.nl/
+        area: Computer Science and Engineering
+        degree: "Bachelor's Degree - Cum Laude"
+        start_date: 2018
+        end_date: 2021
+
+    Skills:
+      - label: Computer Science
+        icon: fa-solid fa-hashtag
+        details: Scheduling, Cumulative Constraint, Constraint Programming, Lazy Clause Generation, Solver Implementation, Maximum Satisfiability
+
+    Languages:
+      - label: Dutch
+        details: Native Speaker
+      - label: English
+        details: Fluent
+      - label: German
+        details: Basic Proficiency
+
+    Certificates:
+      - name: Certificate in Advanced English - C2
+        issuer: Cambridge
+        url: https://www.cambridgeenglish.org/exams-and-tests/advanced/
+        summary: Cambridge

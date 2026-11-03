@@ -1,0 +1,26 @@
+# for more options, see https://docs.rendercv.com/user_guide/yaml_input_structure/design/
+design:
+  theme: classic
+  page:
+    size: a4
+    show_footer: false
+    show_top_note: false
+  templates:
+    education_entry:
+      # Show the full degree name (e.g. "Master's Degree - Cum Laude") under the institution
+      # instead of in the narrow column on the left.
+      main_column: |-
+        **INSTITUTION**, AREA
+        DEGREE
+        SUMMARY
+        HIGHLIGHTS
+      degree_column: ""
+    publication_entry:
+      # The title links to the publication (see bin/rendercv_publications.py), so the separate
+      # DOI/URL link is left out and the venue is shown without brackets.
+      main_column: |-
+        **TITLE**
+        SUMMARY
+        AUTHORS
+        JOURNAL
+      date_and_location_column: DATE

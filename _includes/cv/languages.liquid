@@ -4,14 +4,14 @@
   theme color with the fluency underneath (instead of "Language: Fluency" lines).
   The icon column is only emitted when an entry has a non-empty icon, so the text can be centered.
   Supports both formats like the upstream template:
-  - RenderCV uses: name, summary
+  - RenderCV uses: name, summary (normal entries) or label, details (one-line entries)
   - JSONResume uses: language, fluency
 {% endcomment %}
 
 <div class="list-groups">
   {% for entry in entries %}
-    {% if entry.name %}{% assign lang_name = entry.name %}{% else %}{% assign lang_name = entry.language %}{% endif %}
-    {% if entry.summary %}{% assign fluency = entry.summary %}{% else %}{% assign fluency = entry.fluency %}{% endif %}
+    {% assign lang_name = entry.name | default: entry.label | default: entry.language %}
+    {% assign fluency = entry.summary | default: entry.details | default: entry.fluency %}
     <div class="list-group col-md-6">
       <table class="table-cv list-group-table">
         <tbody>

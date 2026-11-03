@@ -1,5 +1,6 @@
 {% comment %}
   Site override of al_folio_cv's templates/cv/experience.liquid. Changes:
+  - dates with a month ("2025-08") show as "Aug 2025" instead of only the year;
   - an optional icon before the organization name, from the entry's `icon` field
     (e.g. "fa-solid fa-building-columns", the pre-v1 institution icon);
   - an optional `department` line with the pre-v1 department icon (fa-circle-dot).
@@ -34,9 +35,22 @@
           {% assign point_date = point_date | strip %}
 
           {% if start_date != '' %}
-            {% comment %} Extract year only from dates like "1933-01-01" or just use "1933" as is {% endcomment %}
-            {% assign startDate = start_date | split: '-' | first %}
-            {% assign endDate = end_date | split: '-' | first | default: 'Present' %}
+            {% comment %}
+              Show "Aug 2025" for dates with a month ("2025-08" or "2025-08-01", as RenderCV requires) and
+              the year as is otherwise ("2023", "present").
+            {% endcomment %}
+            {% assign start_parts = start_date | split: '-' %}
+            {% if start_parts.size > 1 %}
+              {% assign startDate = start_date | slice: 0, 7 | append: '-01' | date: '%b %Y' %}
+            {% else %}
+              {% assign startDate = start_date %}
+            {% endif %}
+            {% assign end_parts = end_date | split: '-' %}
+            {% if end_parts.size > 1 %}
+              {% assign endDate = end_date | slice: 0, 7 | append: '-01' | date: '%b %Y' %}
+            {% else %}
+              {% assign endDate = end_date | default: 'Present' %}
+            {% endif %}
             {% assign date = startDate | append: ' - ' | append: endDate %}
           {% elsif point_date != '' %}
             {% comment %} A standalone date is a point in time, never an open-ended range, so it renders as a single year {% endcomment %}
