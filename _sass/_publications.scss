@@ -252,3 +252,18 @@ nav#toc-sidebar .toc-link {
 .publications ol.bibliography li .links a.btn {
   text-transform: uppercase;
 }
+
+// Site override: on the About page, align the top of the profile picture with the top of the
+// title. The picture lives in the article below the header (title line + spacing = 4rem), so pull
+// it up by that amount. Only when it floats beside the text; on phones it is full width.
+// If you set a `subtitle` on the About page the header gets taller and this offset must grow.
+@media (min-width: 576px) {
+  .post > article > .profile.float-right {
+    margin-top: -4rem;
+  }
+}
+
+// Site override: center the office address under the profile picture on the About page.
+.post .profile .more-info {
+  text-align: center;
+}
