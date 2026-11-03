@@ -1,11 +1,12 @@
 ---
 layout: cv
 permalink: /cv/
-title: Resume 
+title: Resume
 nav: true
 nav_order: 5
 cv_pdf: # you can also use external links here
-description: My Curriculum Vitae
+cv_format: jsonresume # options: rendercv, jsonresume
+description:
 toc:
   sidebar: left
 ---

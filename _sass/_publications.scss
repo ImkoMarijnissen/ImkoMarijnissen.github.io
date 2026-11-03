@@ -1,0 +1,349 @@
+/*******************************************************************************
+ * Publication and bibliography styles
+ ******************************************************************************/
+
+@use "variables" as v;
+
+.publications {
+  margin-top: 2rem;
+
+  h1 {
+    color: var(--global-theme-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  h2.bibliography {
+    color: rgba(0, 0, 0, 0.3); // site override: darker year headings than the default divider color
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 1rem;
+    margin-top: 2rem;
+    text-align: right;
+  }
+
+  ol.bibliography {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+
+    li {
+      margin-bottom: 1rem;
+
+      .preview {
+        display: inline-block;
+      }
+
+      // Video previews have no intrinsic responsive sizing the way <img> does, so
+      // without this a <video class="preview"> falls back to its 300x150 default and
+      // overflows the thumbnail column.
+      video.preview {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .abbr {
+        margin-bottom: 0.5rem;
+
+        abbr {
+          display: inline-block;
+          background-color: var(--global-theme-color);
+          margin-bottom: 0.5rem;
+          color: var(--global-card-bg-color) !important;
+
+          a {
+            color: white;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        .award {
+          color: var(--global-theme-color) !important;
+          border: 1px solid var(--global-theme-color);
+        }
+      }
+
+      .title {
+        font-weight: bolder;
+      }
+
+      .author {
+        a {
+          border-bottom: 1px dashed var(--global-theme-color);
+
+          &:hover {
+            border-bottom-style: solid;
+            text-decoration: none;
+          }
+        }
+
+        > em {
+          border-bottom: 1px solid;
+          font-style: normal;
+        }
+
+        > span.more-authors {
+          color: var(--global-text-color-light);
+          border-bottom: 1px dashed var(--global-text-color-light);
+          cursor: pointer;
+
+          &:hover {
+            color: var(--global-text-color);
+            border-bottom: 1px dashed var(--global-text-color);
+          }
+        }
+      }
+
+      .links {
+        a.btn {
+          color: var(--global-text-color);
+          border: 1px solid var(--global-text-color);
+          padding-left: 1rem;
+          padding-right: 1rem;
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          margin-left: 0;
+
+          &:hover {
+            color: var(--global-theme-color);
+            border-color: var(--global-theme-color);
+          }
+        }
+        a.award.btn {
+          border-color: var(--global-highlight-color);
+        }
+      }
+
+      .badges {
+        padding-bottom: 0.5rem;
+        span {
+          display: inline-block;
+          color: v.$black-color;
+          height: 100%;
+          padding-right: 0.5rem;
+          vertical-align: middle;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .hidden {
+        font-size: 0.875rem;
+        max-height: 0px;
+        overflow: hidden;
+        text-align: justify;
+        transition-property: 0.15s ease;
+        -moz-transition: 0.15s ease;
+        -ms-transition: 0.15s ease;
+        -o-transition: 0.15s ease;
+        transition: all 0.15s ease;
+
+        p {
+          line-height: 1.4em;
+          margin: 10px;
+        }
+
+        pre {
+          font-size: 1em;
+          line-height: 1.4em;
+          padding: 10px;
+        }
+      }
+
+      .hidden.open {
+        max-height: 100em;
+        transition-property: 0.15s ease;
+        -moz-transition: 0.15s ease;
+        -ms-transition: 0.15s ease;
+        -o-transition: 0.15s ease;
+        transition: all 0.15s ease;
+      }
+
+      div.abstract.hidden {
+        border: dashed 1px var(--global-bg-color);
+      }
+
+      div.abstract.hidden.open {
+        border-color: var(--global-text-color);
+      }
+    }
+    div.award.hidden {
+      border: dashed 1px var(--global-bg-color);
+    }
+    div.award.hidden.open {
+      border-color: var(--global-highlight-color);
+    }
+  }
+}
+
+.citation,
+.citation-number {
+  color: var(--global-theme-color);
+}
+
+// Site override: the CV templates (al_folio_cv) use Bootstrap `.list-group` lists,
+// but Bootstrap's list reset is not loaded in v1, so every entry showed a bullet.
+ul.list-group {
+  list-style: none;
+  padding-left: 0;
+}
+
+// Site override: tocbot's stylesheet gives `.toc` `overflow-y: auto`, and the sidebar
+// content is ~1px taller than its box, so a scrollbar appeared next to the CV sidebar.
+#toc-sidebar {
+  overflow: visible;
+}
+
+// Site override: center the date badges in the CV Experience/Education date column.
+// The default column (col-md-2) is narrower than the badges, so they overflowed to the
+// right; widen it on desktop and center the badge table inside it.
+.date-column {
+  padding-left: 2rem;
+  padding-right: 0;
+  // vertically center the date next to its text block (the column stretches to the row height)
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  table.table-cv {
+    margin-left: auto;
+    margin-right: auto;
+
+    // no thin divider lines above/below the date badges
+    td,
+    th {
+      border: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .row > .date-column {
+    flex: 0 0 28%;
+    max-width: 28%;
+  }
+
+  .row > .date-column + div {
+    flex: 0 0 72%;
+    max-width: 72%;
+  }
+}
+
+// Site override: larger font in the CV table-of-contents sidebar (default 0.8rem).
+nav#toc-sidebar .toc-link {
+  font-size: 0.95rem;
+}
+
+// Site override: fully capitalise the publication buttons (ABS / DOI / BIB / PDF ...).
+.publications ol.bibliography li .links a.btn {
+  text-transform: uppercase;
+}
+
+// Site override: on the About page, align the top of the profile picture with the top of the
+// title. The picture lives in the article below the header (title line + spacing = 4rem), so pull
+// it up by that amount. Only when it floats beside the text; on phones it is full width.
+// If you set a `subtitle` on the About page the header gets taller and this offset must grow.
+@media (min-width: 576px) {
+  .post > article > .profile.float-right {
+    margin-top: -4rem;
+  }
+}
+
+// Site override: center the office address under the profile picture on the About page.
+.post .profile .more-info {
+  text-align: center;
+}
+
+// Site override: more vertical space between entries in the CV Experience/Education cards
+// (the lists whose items have a date column).
+ul.list-group > li.list-group-item:has(.date-column) + li.list-group-item {
+  margin-top: 1.5rem;
+}
+
+// Site override: on the CV page, start the table-of-contents sidebar level with the first card
+// (Contact Information) instead of the page title. The title row is 4rem tall. Scoped to the CV
+// page via its `.table-cv` tables; when scrolling, the sidebar still sticks at its usual offset.
+.row:has(.table-cv) #toc-sidebar {
+  margin-top: 4rem;
+}
+
+// Site override: styling for the restored pre-v1 CV Languages grid (_includes/cv/languages.liquid):
+// no cell borders, language name bold, larger text, both lines centered in each column.
+.list-groups div.list-group {
+  padding-left: 0;
+  padding-right: 0;
+  align-items: center;
+
+  table.list-group-table td {
+    border: 0;
+    text-align: center;
+  }
+
+  td.list-group-category {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  td.list-group-name,
+  td.list-group-category-icon {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  td.list-group-name b {
+    font-weight: 400;
+  }
+}
+
+// Site override: CV Skills card (_includes/cv/skills.liquid), one keyword per line under the category.
+// The category name (and its icon) matches the Languages names: 1.15rem, bold, theme color.
+.skill-item {
+  padding: 0.5rem 0;
+
+  .skill-name {
+    color: var(--global-theme-color);
+    font-size: 1.15rem;
+
+    strong {
+      color: var(--global-theme-color);
+      font-weight: 700;
+    }
+  }
+
+  ul.skill-keywords {
+    list-style: none;
+    margin: 0.25rem 0 0;
+    padding-left: 1.6rem; // align with the category name, past the icon
+  }
+}
+
+// Site override: CV Certificates sized like the Languages grid (name 1.15rem bold, issuer 1rem), centered.
+#certificates + .card li.list-group-item {
+  font-size: 1rem;
+  text-align: center;
+
+  strong {
+    font-size: 1.15rem;
+  }
+}
+
+// Site override: CV institution/department icons (experience/education overrides) get the same
+// fixed width, so the institution name and the department line start at the same position.
+i.iconinstitution.fa-fw,
+i.icondepartment.fa-fw {
+  width: 1.2rem;
+}
