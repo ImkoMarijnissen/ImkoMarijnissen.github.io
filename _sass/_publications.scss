@@ -267,3 +267,83 @@ nav#toc-sidebar .toc-link {
 .post .profile .more-info {
   text-align: center;
 }
+
+// Site override: more vertical space between entries in the CV Experience/Education cards
+// (the lists whose items have a date column).
+ul.list-group > li.list-group-item:has(.date-column) + li.list-group-item {
+  margin-top: 1.5rem;
+}
+
+// Site override: on the CV page, start the table-of-contents sidebar level with the first card
+// (Contact Information) instead of the page title. The title row is 4rem tall. Scoped to the CV
+// page via its `.table-cv` tables; when scrolling, the sidebar still sticks at its usual offset.
+.row:has(.table-cv) #toc-sidebar {
+  margin-top: 4rem;
+}
+
+// Site override: styling for the restored pre-v1 CV Languages grid (_includes/cv/languages.liquid):
+// no cell borders, language name bold, larger text, both lines centered in each column.
+.list-groups div.list-group {
+  padding-left: 0;
+  padding-right: 0;
+  align-items: center;
+
+  table.list-group-table td {
+    border: 0;
+    text-align: center;
+  }
+
+  td.list-group-category {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  td.list-group-name,
+  td.list-group-category-icon {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  td.list-group-name b {
+    font-weight: 400;
+  }
+}
+
+// Site override: CV Skills card (_includes/cv/skills.liquid), one keyword per line under the category.
+// The category name (and its icon) matches the Languages names: 1.15rem, bold, theme color.
+.skill-item {
+  padding: 0.5rem 0;
+
+  .skill-name {
+    color: var(--global-theme-color);
+    font-size: 1.15rem;
+
+    strong {
+      color: var(--global-theme-color);
+      font-weight: 700;
+    }
+  }
+
+  ul.skill-keywords {
+    list-style: none;
+    margin: 0.25rem 0 0;
+    padding-left: 1.6rem; // align with the category name, past the icon
+  }
+}
+
+// Site override: CV Certificates sized like the Languages grid (name 1.15rem bold, issuer 1rem), centered.
+#certificates + .card li.list-group-item {
+  font-size: 1rem;
+  text-align: center;
+
+  strong {
+    font-size: 1.15rem;
+  }
+}
+
+// Site override: CV institution/department icons (experience/education overrides) get the same
+// fixed width, so the institution name and the department line start at the same position.
+i.iconinstitution.fa-fw,
+i.icondepartment.fa-fw {
+  width: 1.2rem;
+}

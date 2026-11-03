@@ -18,14 +18,19 @@
     {
       "position": "International Internship Program",
       "name": "National Institute of Informatics",
+      "url": "https://www.nii.ac.jp/en/about/international/mouresearch/",
       "location": "Tokyo, Japan",
       "startDate": "Aug 2025",
       "endDate": "Oct 2025",
-      "summary": "Research Internship on 'Constraint Propagation in Domain-Independent Dynamic Programming'"
+      "summary": "Research Internship on 'Constraint Propagation in Domain-Independent Dynamic Programming with [Ryo Kuroiwa](https://kurorororo.github.io/)."
     },
     {
       "name": "Delft University of Technology",
       "position": "PhD Candidate",
+      "department": "Algorithmics",
+      "icon": "fa-solid fa-building-columns",
+      "url": "https://www.tudelft.nl/",
+      "location": "Delft, Netherlands",
       "startDate": "2023",
       "summary": "PhD Candidate focussing on scheduling for quantum computing.",
       "highlights": ["Scheduling", "Constraint Programming", "Lazy Clause Generation"]
@@ -33,6 +38,9 @@
     {
       "name": "Delft University of Technology",
       "position": "Teaching Assistant",
+      "icon": "fa-solid fa-building-columns",
+      "url": "https://www.tudelft.nl/",
+      "location": "Delft, Netherlands",
       "startDate": "2020",
       "endDate": "2023",
       "summary": "Teaching Assistant for various courses. I helped with questions related to course material, grading of Assignments/Exams and creating Assignments/Exams."
@@ -41,6 +49,7 @@
   "education": [
     {
       "institution": "Delft University of Techology, Delft, Netherlands",
+      "icon": "fa-solid fa-building-columns",
       "location": "Delft, Netherlands",
       "url": "https://www.tudelft.nl/",
       "area": "Computer Science and Engineering",
@@ -50,6 +59,7 @@
     },
     {
       "institution": "Delft University of Techology, Delft, Netherlands",
+      "icon": "fa-solid fa-building-columns",
       "location": "Delft, Netherlands",
       "url": "https://www.tudelft.nl/",
       "area": "Computer Science",
@@ -62,8 +72,7 @@
     {
       "name": "Certificate in Advanced English - C2",
       "issuer": "Cambridge",
-      "url": "https://www.cambridgeenglish.org/exams-and-tests/advanced/",
-      "icon": "fa-solid fa-location-dot"
+      "url": "https://www.cambridgeenglish.org/exams-and-tests/advanced/"
     }
   ],
   "skills": [

@@ -1,0 +1,29 @@
+{% comment %}
+  Site override of al_folio_cv's templates/cv/skills.liquid.
+  Shows each skill keyword on its own line under the category name, instead of one
+  comma-separated line. Supports both formats like the upstream template
+  (RenderCV `name`/`level`, JSONResume `name`/`level`/`keywords`).
+{% endcomment %}
+
+<div class="card-text font-weight-light">
+  {% for entry in entries %}
+    <div class="skill-item">
+      <div class="skill-name">
+        {% if entry.icon and entry.icon != '' %}
+          <i class="{{ entry.icon }}"></i>
+        {% endif %}
+        <strong>
+          {{- entry.name -}}
+          {%- if entry.level %} ({{ entry.level }}){% endif -%}
+        </strong>
+      </div>
+      {% if entry.keywords %}
+        <ul class="skill-keywords">
+          {% for keyword in entry.keywords %}
+            <li>{{ keyword }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

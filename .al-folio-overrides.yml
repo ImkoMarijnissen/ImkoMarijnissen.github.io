@@ -1,10 +1,38 @@
 ---
 version: 1
 overrides:
+  _includes/cv/education.liquid:
+    owner: al_folio_cv
+    gem_version: 1.0.2
+    upstream_path: templates/cv/education.liquid
+    upstream_sha256: f618efe3bc4caeab8f8f6efaae8386d658d4eb6995ebeb32855e173da37f8d2a
+    local_sha256: 400d110c15eca23674eb908f150b62da7b196c1dc52bea6eb0803b8efada22d7
+    acknowledged_at: '2026-11-03'
+  _includes/cv/experience.liquid:
+    owner: al_folio_cv
+    gem_version: 1.0.2
+    upstream_path: templates/cv/experience.liquid
+    upstream_sha256: 901c87d2e97fea8a679d811e83893267b10eec6ae65b34aee95d8948c5c56c2a
+    local_sha256: b78cb3f3fcb4a6c0e7cc113c3b092e173d02b7316e1f9bf26896e3ac08643914
+    acknowledged_at: '2026-11-03'
+  _includes/cv/languages.liquid:
+    owner: al_folio_cv
+    gem_version: 1.0.2
+    upstream_path: templates/cv/languages.liquid
+    upstream_sha256: 741d326a95804785f000affd120258c47cb226dc4aa4e708c8677e570e6205aa
+    local_sha256: f821bd06cd19a29a86582427cba2db8e32ad0c212290f708a22dc024bfc52e90
+    acknowledged_at: '2026-11-03'
+  _includes/cv/skills.liquid:
+    owner: al_folio_cv
+    gem_version: 1.0.2
+    upstream_path: templates/cv/skills.liquid
+    upstream_sha256: f5d19117eadb2e5e0bad2563bcfaa8c8bda33c7ff2aefc50b5cab9417d29d3c8
+    local_sha256: 4692eddc6be030f5f2ed54a74b2d2af3b271830ae10f117636a428beab2ce16b
+    acknowledged_at: '2026-11-03'
   _sass/_publications.scss:
     owner: al_folio_core
     gem_version: 1.0.15
     upstream_path: _sass/_publications.scss
     upstream_sha256: 9428fe340164ef3eb417b31e9858194ada02a4e5afe35da1cd980545bf2452df
-    local_sha256: c63e2fe72f3cf10c63a83fcca0db4936e408d27b40280054b43ef263beef05e5
+    local_sha256: 0e1ef8b301a3f9222883fc74384fc9bb5979620311e33e4276d860f528a66b34
     acknowledged_at: '2026-11-03'
