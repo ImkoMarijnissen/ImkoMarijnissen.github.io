@@ -80,12 +80,12 @@
       "name": "Computer Science",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-          "Scheduling",
-          "Cumulative Constraint",
-          "Constraint Programming",
-          "Lazy Clause Generation",
-          "Solver Implementation",
-          "Maximum Satisfiability"
+        "Scheduling",
+        "Cumulative Constraint",
+        "Constraint Programming",
+        "Lazy Clause Generation",
+        "Solver Implementation",
+        "Maximum Satisfiability"
       ]
     }
   ],

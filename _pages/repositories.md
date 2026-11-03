@@ -7,7 +7,6 @@ nav: true
 nav_order: 4
 ---
 
-
 {% if site.data.repositories.github_repos %}
 
 <!-- ## Repositories -->
@@ -44,4 +43,3 @@ nav_order: 4
 {% endfor %}
 {% endif %}
 {% endif %}
-
