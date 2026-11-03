@@ -1,6 +1,9 @@
 {% comment %}
-  Site override of al_folio_cv's templates/cv/education.liquid: the only change is an optional
-  icon before the institution name, from the entry's `icon` field (e.g. "fa-solid fa-building-columns").
+  Site override of al_folio_cv's templates/cv/education.liquid. Changes:
+  - an optional icon before the institution name, from the entry's `icon` field (e.g. "fa-solid fa-building-columns");
+  - the date/location column is vertically centered next to the entry: al_folio_core's global
+    `.date-column { transform: translateX(-15px) translateY(-5px) }` is kept without its upward shift, and the
+    location paragraph loses its bottom margin, which made the block sit above the middle.
 
   Unified education entry renderer for both RenderCV and JSONResume formats
   Handles both:
@@ -12,7 +15,7 @@
   {% for entry in entries %}
     <li class="list-group-item">
       <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+        <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column" style="transform: translateX(-15px)">
           {% comment %} `capture` keeps the surrounding whitespace, so strip before testing for emptiness {% endcomment %}
           {% capture start_date %}
             {% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}
@@ -59,7 +62,7 @@
               {% if location != '' %}
                 <tr>
                   <td>
-                    <p class="location">
+                    <p class="location" style="margin-bottom: 0">
                       <i class="fa-solid fa-location-dot iconlocation"></i>
                       {{ location }}
                     </p>
